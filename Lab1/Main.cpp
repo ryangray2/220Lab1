@@ -32,84 +32,104 @@ int minimum(int arr[], int size);
 int sum1(int arr[], int size, int sum, int count);
 int sortArray(int arr[], int size);
 int * lowPass(int arr[], int win, int size);
-void createMatrix(int arr[], int &j, int &k, int &l);
+void createMatrix(int ** arr[], int &j, int &k, int &l);
+void printMatrix(int ** arr[], int &j, int &k, int &l);
 
 int main() {
 //  Problem 1
-//	cout << "!!!Hello, world!!!" << endl;
+	cout << "!!!Hello, world!!!" << endl;
 
 //  Problem 2
-//	string response;
-//	cout << "Enter a positive natural number: " << endl;
-//	cin >> response;
-//	int input = atoi(response.c_str());
-//	int n = input;
-//	cout << "count = " << collatz(n);
-//	collatz2();
+	string response;
+	cout << "Enter a positive natural number: " << endl;
+	cin >> response;
+	int input = atoi(response.c_str());
+	int n = input;
+	cout << "count = " << collatz(n);
+	cout << endl;
+	collatz2();
+	cout << endl;
 
 //  Problem 3
 	srand(time(NULL));
-//	int a = rand();
-//	int b = rand();
-//	int c = rand();
-//	cout << a << ", " << b << ", " << c << endl;
-//	bool answer = isOrdered(&a, &b, &c);
-//	cout << answer << endl;
-//	if (answer == false) {
-//		cout << a << ", " << b << ", " << c << endl;
-//	}
-
+	int a = rand();
+	int b = rand();
+	int c = rand();
+	cout << a << ", " << b << ", " << c << endl;
+	bool answer = isOrdered(&a, &b, &c);
+	cout << answer << endl;
+	if (answer == false) {
+		cout << a << ", " << b << ", " << c << endl;
+	}
+	cout << endl;
 //  Problem 4
-//	cout << isPerfect(6, 6, 0) << endl;
-//	cout << isPerfect(7, 7, 0) << endl;
-
+	cout << isPerfect(6, 6, 0) << endl;
+	cout << isPerfect(7, 7, 0) << endl;
+	cout << endl;
 //  Problem 5
-//	int num6 = 6;
-//	int div6 = 6;
-//	int sum6 = 0;
-//	cout << isPerfect2(num6, div6, sum6) << endl;
-//	int num7 = 7;
-//	int div7 = 7;
-//	int sum7 = 0;
-//	cout << isPerfect2(num7, div7, sum7) << endl;
-
+	int num6 = 6;
+	int div6 = 6;
+	int sum6 = 0;
+	cout << isPerfect2(num6, div6, sum6) << endl;
+	int num7 = 7;
+	int div7 = 7;
+	int sum7 = 0;
+	cout << isPerfect2(num7, div7, sum7) << endl;
+	cout << endl;
 //	Problem 6
-//	int d = (rand() % 30) + 20;
-//	int dArray[d];
-//    randArray(dArray, d);
-//    printArray(dArray, d);
-//    cout << endl;
+	int d = (rand() % 30) + 20;
+	int dArray[d];
+    randArray(dArray, d);
+    printArray(dArray, d);
+    cout << endl;
 
 //  Problem 7
-//  reverseArray(dArray, d);
-//  printArray(dArray, d);
+	reverseArray(dArray, d);
+	printArray(dArray, d);
+	cout << endl;
 
 //  Problem 8
-//	minimum(dArray, d);
+	minimum(dArray, d);
+	cout << endl;
 
 //  Problem 9
-//  cout << sum1(dArray, d, 0, 0);
+    cout << sum1(dArray, d, 0, 0);
+    cout << endl;
 
 // Problem 10
-//	int ten = (rand() % 30) + 20;
-//	int tenArray[ten];
-//	randArray(tenArray, ten);
-//	cout << sortArray(tenArray, ten) << endl;
-//	printArray(tenArray, ten);
+	int ten = (rand() % 30) + 20;
+	int tenArray[ten];
+	randArray(tenArray, ten);
+	cout << sortArray(tenArray, ten) << endl;
+	printArray(tenArray, ten);
+	cout << endl;
+
 //  Problem 11
-//	int win_size = rand() % 4 + 3;
-//	int rand_size = rand() % 30 + 20;
-//	int newrandarr[rand_size];
-//	randArray(newrandarr, rand_size);
-//	cout << "filtered array: ";
-//	lowPass(newrandarr, win_size, rand_size);
-//	cout << endl;
+	int win_size = rand() % 4 + 3;
+	int rand_size = rand() % 30 + 20;
+	int newrandarr[rand_size];
+	randArray(newrandarr, rand_size);
+	cout << "filtered array: ";
+	lowPass(newrandarr, win_size, rand_size);
+	cout << endl;
+
+
 //  Problem 12
-	int ***x = NULL;
+	int ***z = NULL;
 	int j = -1;
 	int k = -1;
 	int l = -1;
+	createMatrix(z, j, k, l);
+	printMatrix(z, j, k, l);
 
+
+	for (int a = 0; a < j; a++) {
+	    for (int b = 0; b < k; b++) {
+	    	delete[] z[a][b];
+	    } // 2nd for
+	    delete[] z[a];
+	} // 1st for
+	delete[] z;
 
 	return 0;
 }
@@ -386,24 +406,40 @@ int * lowPass(int arr[], int win, int size) {
 	return filter;
 } // lowPass
 
-//void createMatrix(int arr[], int &j, int &k, int &l) {
-//	j = (rand() % 4) + 2;
-//	k = (rand() % 4) + 2;
-//	l = (rand() % 4) + 2;
-//	arr = new int *[3];
-//	int jkl = j + k + l;
-//	for (int a = 0; a < 3; a++) {
-//	    for (int b = 0; b < 3; b++) {
-//	        for (int c = 0; c < 3; c++) {
-//	            arr[a][b][c] = jkl;
-//	        } // 3rd for
-//	    } // 2nd for
-//	} // 1st for
-//} // createMatrix
-//
-//void printMatrix(int arr[], int &j, int &k, int &l) {
-//	for (int a = 0; )
-//}
+void createMatrix(int ** arr[], int &j, int &k, int &l) {
+	j = (rand() % 4) + 2;
+	k = (rand() % 4) + 2;
+	l = (rand() % 4) + 2;
+	int abc;
+	arr = new int **[j];
+	for (int a = 0; a < j; a++) {
+		arr[a] = new int*[k];
+	    for (int b = 0; b < k; b++) {
+	    	arr[a][b] = new int[l];
+	    } // 2nd for
+	} // 1st for
+
+	for (int a = 0; a < j; a++) {
+	    for (int b = 0; b < k; b++) {
+	        for (int c = 0; c < l; c++) {
+	        	abc = a + b + c;
+	            arr[a][b][c] = abc;
+	        } // 3rd for
+	    } // 2nd for
+	} // 1st for
+} // createMatrix
+
+void printMatrix(int ** arr[], int &j, int &k, int &l) {
+	for (int a = 0; a < j; a++) {
+	    for (int b = 0; b < k; b++) {
+	        for (int c = 0; c < l; c++) {
+	            cout << arr[a][b][c] << endl;
+	        } // 3rd for
+	        cout << endl;
+	    } // 2nd for
+	    cout << endl;
+	} // 1st for
+}
 
 
 
